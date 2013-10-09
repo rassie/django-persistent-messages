@@ -1,4 +1,7 @@
-from django.conf.urls.defaults import *
+try:
+    from django.conf.urls import patterns, url
+except: # Django < 1.5
+    from django.conf.urls.defaults import patterns, url
 
 urlpatterns = patterns('',
     url(r'^detail/(?P<message_id>\d+)/$', 'persistent_messages.views.message_detail', name='message_detail'),
